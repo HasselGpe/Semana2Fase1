@@ -1,0 +1,22 @@
+ def gato()
+  puts  " "
+  puts "GATO"
+  puts  " "
+  gato = ["X", "O"]
+  play = Array.new(3) { Array.new(3) }
+ for fila in 0..2 
+ for columna in 0..2
+    opc = gato.shuffle
+      play[ fila][columna]= opc[0]
+  end 
+end
+for fila in 0..2
+for columna in 0..2
+    value = play[fila][columna]
+    print "|#{value}|"
+      if columna == 2
+        print "\n"
+      end 
+    end
+  end
+end 
