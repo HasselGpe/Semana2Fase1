@@ -54,12 +54,12 @@
 # prime_factors(34) => [2, 17]
 ##########################################################################################################
 require 'prime'
-def prime_numbers(num)
-Prime.prime_division(num)
+def prime_numbers(intiger)
+Prime.prime_division(intiger)
 end
-def prime_factors(num)
+def prime_factors(intiger)
   arr = []
-  prime_numbers(num).each do |a|
+  prime_numbers(intiger).each do |a|
     for i in 1..a[1]
       if a[1] > 1
         arr << a[0]
