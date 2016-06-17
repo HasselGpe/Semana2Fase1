@@ -54,53 +54,61 @@
 # p table[3][4]  == [8, 7, 7, 9, 8]
 # p table[4][4][2]  == 6
 ##########################################################################################################
+
 def ajedrez
-  tab = Array.new(8){Array.new(8)}
-  fichas = [["Torre"], ["Caballo"], 
-            ["Alfil"], ["Reina"], 
-            ["Rey"], ["Peon"]]
+  puts ""
+  puts "*********************** Tablero    de   Ajedrez ************************"
+  puts ""
+  puts "▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ "
+  tabla = Array.new(8){Array.new(8)}
+  fichas = [["|T"], ["|C"], 
+            ["|A"], ["|D"], 
+            ["|R"], ["|P"]]
   for i in 0..7
     count = 0
     for j in 0..7 
       if i == 0   
-          tab[i][j] = fichas[count][0] + "-B"
+        if count <= 4  
+          tabla[i][j] = fichas[count][0] + "-B|"
         else
-          tab[i][j] = fichas[count % 2 + 1][0] + "-B"
-          tab[i][j] = fichas[0][0] + "-B" if j == 7
+          tabla[i][j] = fichas[count % 2 + 1][0] + "-B|"
+          tabla[i][j] = fichas[0][0] + "-B|" if j == 7
         end
         count += 1
       elsif i == 1
-        tab[i][j] = fichas[5][0] + "-B"
+        tabla[i][j] = fichas[5][0] + "-B|"
       elsif i == 6
-        tab[i][j] = fichas[5][0] + "-N"
+        tabla[i][j] = fichas[5][0] + "-N|"
       elsif i == 7
         if count <= 4  
-          tab[i][j] = fichas[count][0] + "-B"   
+          tabla[i][j] = fichas[count][0] + "-B|"   
         else
-          tab[i][j] = fichas[count % 2 + 1][0] + "-N"
-          tab[i][j] = fichas[0][0] + "-B" if j == 7
+          tabla[i][j] = fichas[count % 2 + 1][0] + "-N|"
+          tabla[i][j] = fichas[0][0] + "-B|" if j == 7
         end
         count += 1
       else
-        tab[i][j] = ""     
+       tabla[i][j] = "|___|"  
+
       end  
     end
   end
-  tab
+  tabla
 end
 def tablero(tablero)
-  for h in 0..7
-    p tablero[h]
+  for x in 0..7
+    p tablero[x]
   end
 end
 tabla = ajedrez
 tablero(tabla)
-
-
-
-
-
-puts "Tabla de Datos"
+   puts "▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ ▬ "
+puts ""
+puts ""
+puts "|----------------------------------------------------------|"
+puts " Tabla de Datos"
+puts "|----------------------------------------------------------|"
+puts ""
 # | Nombre           | Edad | Genero   | Grupo  | Calificaciones |
 # +------------------+------+----------+--------+----------------+
 # |Rodrigo García    | 13   |Masculino |Primero  |[9, 9, 7, 6, 8] |                 
