@@ -41,45 +41,32 @@
 
 # Intenta usar tu función recursiva con números cada vez más grandes y mira que pasa y trata de
 #  comprender porque pasa.
+# fact = 1
+# 6.downto(1) { |num| fact = num * fact}
+# p fact
 ##########################################################################################################
-# Dos métodos para Factorial, un factorial_iterative el cual debe 
-# de resolver el factorial sin utilizar la función recursiva y 
-# luego un factorial_recursive. Regresa a las formulas del factorial 
-# para que te des una idea de como resolverlo.
-
-# Iterative factorial
-def iterative_factorial(int)
-  #'y' variable is initialized with 1
-  y = 1
-  #Compute the factorial
-  (1..int).each do |x|
-    y = x * y        
+def factorial_iterative(int)
+  fact = 1 #Se inicializa con 1
+  (1..int).each do |num| #Se calcula la factorial
+    fact  = num * fact       
   end
-  #Result, factorial
-  y
+  fact
 end 
-
 #Drive code
-p iterative_factorial(5) == 120
-
+p factorial_iterative(6) == 720
 ##########################################################################################################
-# Recursive factorial
-def recursive_factorial(n)
-  #Flag for begin and end the recursive method.
-  if n == 0
+def factorial_recursive(num)
+  if num == 0
     1
   else
-    #Compute factorial.
-    n * recursive_factorial(n-1)
+    num * factorial_recursive(num-1)
   end
 end
-
 #Driver code
-p recursive_factorial(5) == 120
+p factorial_recursive(6) == 720
 
 
-
-
+ 
 
 
 
